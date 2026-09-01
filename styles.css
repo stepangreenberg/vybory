@@ -1,9 +1,12 @@
 body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 16px; color: #1a1a1a; }
 h1 { font-size: 1.5rem; color: #2b5797; }
-h2 { font-size: 1.15rem; margin-top: 28px; border-bottom: 1px solid #ddd; padding-bottom: 4px; scroll-margin-top: 16px; }
-.toc ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2px 16px; list-style: none; padding: 0; }
-.toc a { color: #2b5797; text-decoration: none; }
-.toc a:hover { text-decoration: underline; }
+.breadcrumbs { margin-bottom: 16px; color: #888; font-size: 0.9rem; }
+.breadcrumbs a { color: #2b5797; text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs .sep { margin: 0 8px; }
+.menu ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 4px 16px; list-style: none; padding: 0; }
+.menu a { color: #2b5797; text-decoration: none; }
+.menu a:hover { text-decoration: underline; }
 ul { padding-left: 0; list-style: none; }
 li { padding: 3px 0; line-height: 1.5; }
 .name { font-weight: 600; }
