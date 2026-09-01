@@ -6,8 +6,25 @@ for (const c of CANDIDATES) {
   byRegion.get(c.r).push(c);
 }
 
-for (const [region, cands] of [...byRegion.entries()].sort((a, b) => a[0].localeCompare(b[0], 'ru'))) {
+const regions = [...byRegion.entries()].sort((a, b) => a[0].localeCompare(b[0], 'ru'));
+
+const toc = document.createElement('nav');
+toc.className = 'toc';
+const tocUl = document.createElement('ul');
+regions.forEach(([region], i) => {
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  a.href = '#reg-' + i;
+  a.textContent = region;
+  li.appendChild(a);
+  tocUl.appendChild(li);
+});
+toc.appendChild(tocUl);
+app.appendChild(toc);
+
+regions.forEach(([region, cands], i) => {
   const h = document.createElement('h2');
+  h.id = 'reg-' + i;
   h.textContent = region;
   app.appendChild(h);
 
@@ -41,4 +58,4 @@ for (const [region, cands] of [...byRegion.entries()].sort((a, b) => a[0].locale
     ul.appendChild(li);
   }
   app.appendChild(ul);
-}
+});
