@@ -1,8 +1,44 @@
-const status = document.getElementById('status');
+const app = document.getElementById('app');
 
-function tick() {
-  status.textContent = 'Скрипт работает — время на клиенте: ' + new Date().toLocaleTimeString('ru-RU');
+const byRegion = new Map();
+for (const c of CANDIDATES) {
+  if (!byRegion.has(c.r)) byRegion.set(c.r, []);
+  byRegion.get(c.r).push(c);
 }
 
-tick();
-setInterval(tick, 1000);
+for (const [region, cands] of [...byRegion.entries()].sort((a, b) => a[0].localeCompare(b[0], 'ru'))) {
+  const h = document.createElement('h2');
+  h.textContent = region;
+  app.appendChild(h);
+
+  const ul = document.createElement('ul');
+  for (const c of cands) {
+    const li = document.createElement('li');
+    const name = document.createElement('span');
+    name.className = 'name';
+    name.textContent = c.n;
+    li.appendChild(name);
+    if (c.p) {
+      const party = document.createElement('span');
+      party.className = 'party';
+      party.textContent = ' (' + c.p + ')';
+      li.appendChild(party);
+    }
+    if (c.c.length) {
+      const links = document.createElement('span');
+      links.className = 'contacts';
+      links.append(' — ');
+      links.append(...c.c.map((u, i) => {
+        const a = document.createElement('a');
+        a.href = u;
+        a.textContent = u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+        a.target = '_blank';
+        a.rel = 'noopener';
+        return i ? [', ', a] : [a];
+      }).flat());
+      li.appendChild(links);
+    }
+    ul.appendChild(li);
+  }
+  app.appendChild(ul);
+}

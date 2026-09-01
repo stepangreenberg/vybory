@@ -1,8 +1,10 @@
-body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; color: #1a1a1a; }
-h1 { color: #2b5797; font-size: 1.5rem; }
-p { color: #444; }
-ol { padding-left: 24px; line-height: 1.8; }
+body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 16px; color: #1a1a1a; }
+h1 { font-size: 1.5rem; color: #2b5797; }
+h2 { font-size: 1.15rem; margin-top: 28px; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+ul { padding-left: 0; list-style: none; }
+li { padding: 3px 0; line-height: 1.5; }
+.name { font-weight: 600; }
+.party { color: #777; font-size: 0.9rem; }
+.contacts a { color: #2b5797; text-decoration: none; }
+.contacts a:hover { text-decoration: underline; }
 footer { margin-top: 32px; color: #888; font-size: 0.85rem; }
-li { transition: background 0.2s; padding: 2px 6px; }
-li:hover { background: #eef3fb; }
-#status { margin-top: 24px; font-size: 0.9rem; color: #2b5797; }
